@@ -1,0 +1,25 @@
+<%- include header %>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <caption>我的笔记列表</caption>
+            <thead>
+            <tr>
+                <th>标题</th>
+                <th>标签</th>
+                <th>日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% notes.forEach(function (note) { %>
+            <tr>
+                <td><a href="/detail/<%= note._id %>"><%= note.title %></a></td>
+                <td><%= note.tag %></td>
+                <td><%= moment(note.createTime).locale('zh-cn').format('LL HH:mm:ss') %></td>
+            <% }) %>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include footer %>
